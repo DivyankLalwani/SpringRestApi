@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,10 +41,11 @@ public class UserService {
     }
 
 
-    public List<User> getAllUsers()
+    public List<Object> getAllUsers(Long id)
     {
-        List<User> users = new ArrayList();
-        userRepository.findAll().forEach(users::add);
+        List<Object> users = new ArrayList();
+        users = Collections.singletonList(userRepository.findAllActiveUsersWithBank(id));
+//        userRepository.findAll().forEach(users::add);
         return users;
     }
 

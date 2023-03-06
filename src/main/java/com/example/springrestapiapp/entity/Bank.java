@@ -1,5 +1,7 @@
 package com.example.springrestapiapp.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity

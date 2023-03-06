@@ -45,10 +45,10 @@ public class Controller {
         System.out.println(userOptional);
         return userOptional.get().getBanks();
     }
-    @GetMapping("/getdata")
-    private List<User> getAllUsers()
+    @GetMapping("/getdata/{id}")
+    private List<Object> getAllUsers(@PathVariable("id") Long id)
     {
-        return userService.getAllUsers();
+        return userService.getAllUsers(id);
     }
     @GetMapping("/getbanks")
     private List<Bank> getAllUsersWithBank()
